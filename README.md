@@ -60,7 +60,7 @@ docker-compose --version
 
 
 ### 示例说明
-以您提供的 docker-compose.yml 为例，这是一个运行 Ollama（AI 模型服务）和 Open WebUI 的配置：
+以您提供的 docker-compose.yml 为例 (GPU Version)，这是一个运行 Ollama（AI 模型服务）和 Open WebUI 的配置：
 
 ```yaml
 services:
@@ -102,14 +102,22 @@ volumes:
   open-webui:
 ```
 
-### 启动服务
+### 启动服务 (GPU)
 1. 将 docker-compose.yml 保存到某个目录
 2. 在该目录下运行：
 ```bash
 sudo docker compose up -d
 sudo docker exec -it ollama ollama pull deepseek-r1
 ```
-3. 访问服务：
-   - Open WebUI 界面：http://localhost:3000
+
+### 启动服务 (CPU)
+1. 将 docker-compose.cpu.yml 保存到某个目录
+2. 在该目录下运行：
+```bash
+sudo docker compose -f docker-compose.cpu.yml up -d
+sudo docker exec -it ollama ollama pull deepseek-r1
+```
+### 访问服务：
+- Open WebUI 界面：http://localhost:3000
 
 ![alt text](imgs/image.png)
